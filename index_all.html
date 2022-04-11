@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <!-- we import arjs version without NFT but with marker + location based support -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="play-on-click.js"></script>
+    <script src="audiohandler.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+
+    <body style="margin : 0px; overflow: hidden;">
+        <div class="centered instructions"> Test </div>
+
+        <a-scene
+        arjs
+        embedded
+        renderer="logarithmicDepthBuffer: true;"
+        vr-mode-ui="enabled: false"
+        gesture-detector
+        id="scene"
+        >
+        <a-assets>
+            <!-- <a-asset-item
+            id="bowser"
+            src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"
+            > </a-asset-item> -->
+            <a-asset-item
+            id="bowser"
+            
+            src="leuchter_colored.glb"
+            > </a-asset-item>
+
+            <a-asset-item
+            id="leuchter"
+            src="leuchter.glb"
+            > </a-asset-item>
+
+            <!-- <audio id="firesound" src="fire.mp3" preload="auto" autoplay="false"> </audio> -->
+
+            <video id="id_video" 
+            src="video.mp4" 
+            autoplay="true"
+            width="160" 
+            height="90"
+            loop="true"
+            crossOrigin="anonymous" 
+            muted
+            > </video>
+        </a-assets>
+
+        <!-- Testmarker HIRO -->
+        <a-marker
+            preset="hiro"
+            raycaster="objects: .clickable"
+            emitevents="true"
+            cursor="fuse: false; rayOrigin: mouse;"
+            id="markerA"
+        >
+            <a-entity
+            id="bowser-model"
+            gltf-model="#bowser"
+            position="0 1 -0.5"
+            scale="1 1 1"
+            >
+            </a-entity>
+            <!-- <a-entity 
+            geometry="primitive: plane; width: 1; height: 1;"
+            material="shader: flat; src: #id_video"
+            sound="src: #firesound; autoplay: false"
+            position="0 0 0"
+            rotation="-90 0 0"
+            play-on-click
+            audiohandler
+            class="clickable"
+            gesture-handler
+            ></a-entity> -->
+
+        </a-marker>
+
+
+        <!-- Marker Leuchter bw 1-->
+        <a-marker
+            type="pattern"
+            url="pattern-soul-bleaching_bw.patt"
+            raycaster="objects: .clickable"
+            emitevents="true"
+            cursor="fuse: false; rayOrigin: mouse;"
+            id="marker_soulbleaching"
+        >
+            <a-entity 
+            gltf-model="#leuchter"
+            position="0 0 0"
+            scale="1 1 1"
+            ></a-entity>
+        </a-marker>
+
+        <!-- Marker Leuchter neu-->
+        <a-marker
+            type="pattern"
+            url="pattern-leuchter.patt"
+            raycaster="objects: .clickable"
+            emitevents="true"
+            cursor="fuse: false; rayOrigin: mouse;"
+            id="marker_soulbleaching"
+        >
+            <a-entity 
+            gltf-model="#leuchter"
+            position="0 0 0"
+            scale="1 1 1"
+            ></a-entity>
+        </a-marker>
+
+        <!-- Marker Nagel -->
+        <a-marker
+            type="pattern"
+            url="pattern-nagel.patt"
+            raycaster="objects: .clickable"
+            emitevents="true"
+            cursor="fuse: false; rayOrigin: mouse;"
+            id="marker_paradise"
+        >
+            <a-entity
+            id="bowser-model"
+            gltf-model="#bowser"
+            position="0 0 -0.5"
+            scale="1 1 1"
+            >
+            </a-entity>
+            <a-entity 
+            geometry="primitive: plane; width: 1; height: 1;"
+            material="shader: flat; src: #id_video"
+            position="0 0 0"
+            rotation="-90 0 0"
+            play-on-click
+            audiohandler
+            class="clickable"
+            gesture-handler
+            ></a-entity>
+
+        </a-marker>
+
+        <!-- Marker Brunnen-->
+        <a-marker
+            type="pattern"
+            url="pattern-brunnen.patt"
+            raycaster="objects: .clickable"
+            emitevents="true"
+            cursor="fuse: false; rayOrigin: mouse;"
+            id="marker_soulbleaching"
+        >
+            <a-entity 
+            gltf-model="#leuchter"
+            position="0 0 0"
+            scale="1 1 1"
+            ></a-entity>
+        </a-marker>
+
+        <!-- Marker Robot-->
+        <a-marker
+            type="pattern"
+            url="pattern-robot.patt"
+            raycaster="objects: .clickable"
+            emitevents="true"
+            cursor="fuse: false; rayOrigin: mouse;"
+            id="marker_soulbleaching"
+        >
+            <a-entity 
+            gltf-model="#leuchter"
+            position="0 0 0"
+            scale="1 1 1"
+            ></a-entity>
+        </a-marker>
+
+        <!-- Marker Ananas-->
+        <a-marker
+            type="pattern"
+            url="pattern-ananas.patt"
+            raycaster="objects: .clickable"
+            emitevents="true"
+            cursor="fuse: false; rayOrigin: mouse;"
+            id="marker_soulbleaching"
+        >
+            <a-entity 
+            gltf-model="#leuchter"
+            position="0 0 0"
+            scale="1 1 1"
+            ></a-entity>
+        </a-marker>
+
+        <!-- Marker AR bw-->
+        <a-marker
+            type="pattern"
+            url="pattern-ar_2.patt"
+            raycaster="objects: .clickable"
+            emitevents="true"
+            cursor="fuse: false; rayOrigin: mouse;"
+            id="marker_soulbleaching"
+        >
+            <a-entity 
+            gltf-model="#leuchter"
+            position="0 0 0"
+            scale="1 1 1"
+            ></a-entity>
+        </a-marker>
+
+        <!-- Marker AR orange-->
+        <a-marker
+            type="pattern"
+            url="pattern-ar_1.patt"
+            raycaster="objects: .clickable"
+            emitevents="true"
+            cursor="fuse: false; rayOrigin: mouse;"
+            id="marker_soulbleaching"
+        >
+            <a-entity 
+            gltf-model="#leuchter"
+            position="0 0 0"
+            scale="1 1 1"
+            ></a-entity>
+        </a-marker>
+
+        <a-entity camera></a-entity>
+        </a-scene>
+
+        <div class="centered">
+            <a href="locationtest.html"><button> < </button></a>
+            <button data-action="change"> Videotest </button>
+            <a href="scalingtest.html"><button> > </button></a>
+        </div>
+
+    </body>
+</html>
