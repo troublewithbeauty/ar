@@ -8,8 +8,7 @@
     <link rel="stylesheet" type="text/css" href="style.css"/>
 
     <body style="margin : 0px; overflow: hidden;">
-        <div class="centered instructions"> Test </div>
-
+        
         <a-scene
         arjs="debugUIEnabled: true; 
         detectionMode: mono_and_matrix; 
@@ -19,8 +18,8 @@
         vr-mode-ui="enabled: false"
         gesture-detector
         id="scene"
-        
         >
+
         <a-assets>
             <!-- <a-asset-item
             id="bowser"
@@ -131,7 +130,7 @@
         <!-- Marker Barcode -->
         <a-marker
             type="barcode" 
-            value="0"
+            value="6"
             raycaster="objects: .clickable"
             emitevents="true"
             cursor="fuse: false; rayOrigin: mouse;"
@@ -153,5 +152,81 @@
             <a href="scalingtest.html"><button> > </button></a>
         </div>
 
+        <div id="header" class="header fixed">
+            <div class="header-itemcontainer">
+                <div class="logoButton">
+                    <h1>TwB</h1>
+                    <div class="logo_full_wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="108.1" height="108.555" viewBox="0 0 108.1 108.555">
+                            <defs>
+                              <clipPath id="clip-path">
+                                <path id="Pfad_14" data-name="Pfad 14" d="M0-293.486H108.1V-402.041H0Z" transform="translate(0 402.041)" fill="#fbafff"/>
+                              </clipPath>
+                            </defs>
+                            <g id="Gruppe_17" data-name="Gruppe 17" transform="translate(0 402.041)">
+                              <g id="Gruppe_16" data-name="Gruppe 16" transform="translate(0 -402.041)" clip-path="url(#clip-path)">
+                                <g id="Gruppe_12" data-name="Gruppe 12" transform="translate(24.647 35.389)">
+                                  <path id="Pfad_10" data-name="Pfad 10" d="M-21.918-44.025a8.114,8.114,0,0,0,8.108-8.143,8.114,8.114,0,0,0-8.108-8.141,8.046,8.046,0,0,0-8.107,8.141,8.046,8.046,0,0,0,8.107,8.143" transform="translate(30.025 60.309)" fill="#fbafff"/>
+                                </g>
+                                <g id="Gruppe_13" data-name="Gruppe 13" transform="translate(0)">
+                                  <path id="Pfad_11" data-name="Pfad 11" d="M-146.128-293.486a54.115,54.115,0,0,0,54.05-54.278,54.184,54.184,0,0,0-54.05-54.278,54.184,54.184,0,0,0-54.05,54.278,54.115,54.115,0,0,0,54.05,54.278m0-97.7a43.32,43.32,0,0,1,43.24,43.422,43.32,43.32,0,0,1-43.24,43.421,43.319,43.319,0,0,1-43.24-43.421,43.319,43.319,0,0,1,43.24-43.422" transform="translate(200.178 402.041)" fill="#fbafff"/>
+                                </g>
+                                <g id="Gruppe_14" data-name="Gruppe 14" transform="translate(67.454 35.389)">
+                                  <path id="Pfad_12" data-name="Pfad 12" d="M-21.92-44.025a8.113,8.113,0,0,0,8.107-8.143,8.113,8.113,0,0,0-8.107-8.141,8.046,8.046,0,0,0-8.108,8.141,8.046,8.046,0,0,0,8.108,8.143" transform="translate(30.028 60.309)" fill="#fbafff"/>
+                                </g>
+                                <g id="Gruppe_15" data-name="Gruppe 15" transform="translate(31.025 67.196)">
+                                  <path id="Pfad_13" data-name="Pfad 13" d="M-20.749-48.2S-5.507-63.5,9.842-48.2l7.568-7.6c-22.918-23.014-45.834,0-45.834,0Z" transform="translate(28.424 66.023)" fill="#fbafff"/>
+                                </g>
+                              </g>
+                            </g>
+                          </svg>
+                        <h2>AR</h2>
+                    </div>
+                </div>
+                <div class="header_description">
+                    Erweitere deinen Geist und augment your reality!
+                </div>
+                <div class="header_tutorial">
+                    <ol>
+                        <li>Kamera- und Standort-Zugriff erlauben.</li>
+                        <li>QR-Marker im Magazin scannen und Glow-Up erleben!</li>
+                    </ol>
+                </div>
+                <button class="header_goButton" onclick="toggleHeader()">Let's Glow</button>
+                <div class="header_footerlinks">
+                    <a>Impressum & Datenschutz</a>
+                    <a>Benutzungshilfe</a>
+                </div>
+
+            </div>
+            <button id ="headerToggle" onclick="toggleHeader()">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="108.1" height="108.555" viewBox="0 0 108.1 108.555">
+                    <defs>
+                      <clipPath id="clip-path">
+                        <path id="Pfad_14" data-name="Pfad 14" d="M0-293.486H108.1V-402.041H0Z" transform="translate(0 402.041)" fill="#fbafff"/>
+                      </clipPath>
+                    </defs>
+                    <g id="Gruppe_17" data-name="Gruppe 17" transform="translate(0 402.041)">
+                      <g id="Gruppe_16" data-name="Gruppe 16" transform="translate(0 -402.041)" clip-path="url(#clip-path)">
+                        <g id="Gruppe_12" data-name="Gruppe 12" transform="translate(24.647 35.389)">
+                          <path id="Pfad_10" data-name="Pfad 10" d="M-21.918-44.025a8.114,8.114,0,0,0,8.108-8.143,8.114,8.114,0,0,0-8.108-8.141,8.046,8.046,0,0,0-8.107,8.141,8.046,8.046,0,0,0,8.107,8.143" transform="translate(30.025 60.309)" fill="#fbafff"/>
+                        </g>
+                        <g id="Gruppe_13" data-name="Gruppe 13" transform="translate(0)">
+                          <path id="Pfad_11" data-name="Pfad 11" d="M-146.128-293.486a54.115,54.115,0,0,0,54.05-54.278,54.184,54.184,0,0,0-54.05-54.278,54.184,54.184,0,0,0-54.05,54.278,54.115,54.115,0,0,0,54.05,54.278m0-97.7a43.32,43.32,0,0,1,43.24,43.422,43.32,43.32,0,0,1-43.24,43.421,43.319,43.319,0,0,1-43.24-43.421,43.319,43.319,0,0,1,43.24-43.422" transform="translate(200.178 402.041)" fill="#fbafff"/>
+                        </g>
+                        <g id="Gruppe_14" data-name="Gruppe 14" transform="translate(67.454 35.389)">
+                          <path id="Pfad_12" data-name="Pfad 12" d="M-21.92-44.025a8.113,8.113,0,0,0,8.107-8.143,8.113,8.113,0,0,0-8.107-8.141,8.046,8.046,0,0,0-8.108,8.141,8.046,8.046,0,0,0,8.108,8.143" transform="translate(30.028 60.309)" fill="#fbafff"/>
+                        </g>
+                        <g id="Gruppe_15" data-name="Gruppe 15" transform="translate(31.025 67.196)">
+                          <path id="Pfad_13" data-name="Pfad 13" d="M-20.749-48.2S-5.507-63.5,9.842-48.2l7.568-7.6c-22.918-23.014-45.834,0-45.834,0Z" transform="translate(28.424 66.023)" fill="#fbafff"/>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+            </button>
+        </div>
+
+
+        <script src="events.js"></script>
     </body>
 </html>
