@@ -369,7 +369,56 @@ ol li {
     text-align: right;
 }
 
+.info_overlay{
+    position: fixed;
+    bottom: 0rem;
+    left: 0rem;
+    padding: 1rem;
+    vertical-align: bottom;
+    color: white;
+    font-size: 2rem;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
 
+#hint{
+    padding: 1rem;
+    outline: 0.5rem solid white;
+    margin: auto;
+    width: 80vw;
+    height: 80vw;
+    max-width: 300px;
+    max-height: 300px;
+    animation-duration: 0.5s;
+    animation-name: animateBorder;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes animateBorder{
+    from{
+        outline-width: .5rem;
+
+    }
+    to{
+        outline-width: 1rem;
+    }
+}
+
+.info_marker_name{
+    font-family: "CLAN";
+}
+
+h3{
+    font-size: inherit;
+    font-family: inherit;
+    margin-bottom: 1em;
+}
 
 
 
@@ -416,7 +465,7 @@ ol li {
 
 /* MEDIA QUERIES */
 
-@media screen and (max-width: 300px){
+@media screen and (max-width: 400px){
     .header-itemcontainer{
         width: 100%;
     }

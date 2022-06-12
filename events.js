@@ -11,3 +11,8 @@ function toggleMenu() {
         console.log("enabling header");
     }
 }
+
+
+// things to do: 
+// action when a marker is found!
+// see https://ar-js-org.github.io/AR.js-Docs/ui-events/, @ "Trigger action when marker has been found"
