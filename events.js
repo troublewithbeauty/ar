@@ -2,7 +2,7 @@ function toggleHeader(inputState) {
     let header = document.getElementById("header");
     header.classList.toggle("hidden");
 
-    console.log("toggling header");
+    console.log("pulling down header");
 }
 
 function toggleMenu() {

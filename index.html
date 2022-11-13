@@ -6,6 +6,9 @@
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image-aframe.prod.js"></script>
     <!-- we import arjs version without NFT but with marker + location based support -->
     <!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script> -->
+    
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+
     <script src="play-on-click.js"></script>
     <script src="audiohandler.js"></script>
     <script>
@@ -17,13 +20,63 @@
             })
           }
         });
-      </script>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const sceneEl = document.querySelector('a-scene');
+        const arSystem = sceneEl.systems["mindar-image-system"];
+        const startButton = document.querySelector("#goButton");
+        //const stopButton = document.querySelector("#example-stop-button");
+        const pauseButton = document.querySelector("#headerToggle");
+        //const pauseKeepVideoButton = document.querySelector("#example-pause-keep-video-button");
+        const unpauseButton = document.querySelector("#goButton");
+        startButton.addEventListener('click', () => {
+          console.log("start");
+          arSystem.start(); // start AR when clicking on let's glow-button
+        });
+        /* stopButton.addEventListener('click', () => {
+          arSystem.stop(); // stop AR 
+        }); */
+        pauseButton.addEventListener('click', () => {
+          arSystem.pause(); // pause AR, keep video feed
+        });
+
+        unpauseButton.addEventListener('click', () => {
+          arSystem.unpause(); // unpause AR and video
+        });
+        // arReady event triggered when ready
+        sceneEl.addEventListener("arReady", (event) => {
+          // console.log("MindAR is ready")
+        });
+        // arError event triggered when something went wrong. Mostly browser compatbility issue
+        sceneEl.addEventListener("arError", (event) => {
+          // console.log("MindAR failed to start")
+        });
+        // detect target found
+        exampleTarget.addEventListener("targetFound", event => {
+          console.log("target found");
+        });
+        // detect target lost
+        exampleTarget.addEventListener("targetLost", event => {
+          console.log("target lost");
+        });
+        // detect click event
+        examplePlane.addEventListener("click", event => {
+          console.log("plane click");
+        });
+      });
+    </script>
 
     <body style="margin : 0px; overflow: hidden;">
         
 
-        <a-scene mindar-image="imageTargetSrc: asssets/mindar_marker/mindar_twb_qr-targets;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+        <a-scene 
+          mindar-image="imageTargetSrc: assets/mindar_marker/mindar_twb_qr-targets.mind;" 
+          color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" 
+          vr-mode-ui="enabled: false" 
+          device-orientation-permission-ui="enabled: false"
+          autoStart: false
+        >
         <!-- target indices: 0: intro, 1: generativebathing, 2: nailadorning, 3: karmatrimming, 4: soulbleaching, 5: paradisepracticing -->
 
           <a-assets>
@@ -95,7 +148,7 @@
                         <li>QR-Marker im Magazin scannen und Glow-Up erleben!</li>
                     </ol>
                 </div>
-                <button class="header_goButton" onclick="toggleHeader()">Let's Glow</button>
+                <button id="goButton" class="header_goButton" onclick="toggleHeader()">Let's Glow</button>
                 <div class="header_footerlinks">
                     <a>Impressum & Datenschutz</a>
                     <a>Benutzungshilfe</a>
