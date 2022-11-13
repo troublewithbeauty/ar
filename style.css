@@ -20,7 +20,7 @@ a, a:visited, a > *, button{
     color: inherit;
     text-decoration: none;
 }
-a:hover{
+a:hover, a:visited{
     color:#fff;
 }
 
@@ -253,6 +253,7 @@ body{ font-size:16px; }
     gap: 1rem 0.5rem;
     transform: translateY(0vh);
     transition: all 0.5s ease-in-out;
+    z-index: 3;
 }
 
 .hidden{
@@ -459,6 +460,13 @@ h3{
     top: 5%;
     font-size: 1.25em;
     z-index: 999999;
+}
+
+
+/* MindAR Stuff */
+.mindar-ui-overlay{
+    pointer-events: none;
+    z-index: 0;
 }
 
 
