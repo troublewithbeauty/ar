@@ -58,11 +58,11 @@ function targetFoundHandler(target) {
             break;
 
         case "#Generative_Bathing": // Value of foo matches this criteria; execution starts from here
-            detailTextContent = "Die Interpretation konträrer  menschlicher Aussagen über Schönheit durch eine künstliche Intelligenz lädt dazu ein, in den visuellen Ergebnissen zu baden und sich jenseits von Definitionszwängen treiben zu lassen.";
+            detailTextContent = "Die Interpretation konträrer menschlicher Aussagen über Schönheit durch eine künstliche Intelligenz lädt dazu ein, in den visuellen Ergebnissen zu baden und sich jenseits von Definitionszwängen treiben zu lassen.";
             break;
 
         case "#Nail_Adorning": // no break statement in 'case 0:' so this case will run as well
-            detailTextContent = "DIY: Nagelverzierung mit den Trouble with Beauty Nagelstickern!";
+            detailTextContent = "DIY: Verziere deine Nägel mit den Trouble with Beauty Nagelstickern! <br> <a href='assets/docs/Nail_Adorning_Anleitung.pdf'><b>PDF-Download</b></a> (6 MB)";
             break; // Break encountered; will not continue into 'case 2:'
 
         case "#Karma_Trimming":
