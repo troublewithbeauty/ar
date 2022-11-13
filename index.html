@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trouble with Beauty</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
+
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image.prod.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image-aframe.prod.js"></script>
-    <!-- we import arjs version without NFT but with marker + location based support -->
-    <!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script> -->
-    
-    <link rel="stylesheet" type="text/css" href="style.css"/>
 
+    <script src="assets/js/aframe-outline.min.js"></script> <!-- from https://github.com/EricEisaman/aframe-outline -->
     <script src="play-on-click.js"></script>
     <script src="audiohandler.js"></script>
+
     <script>
         AFRAME.registerComponent('markerhandler', {
           init: function () {
@@ -29,7 +43,7 @@
         //const stopButton = document.querySelector("#example-stop-button");
         const pauseButton = document.querySelector("#headerToggle");
         //const pauseKeepVideoButton = document.querySelector("#example-pause-keep-video-button");
-        const unpauseButton = document.querySelector("#goButton");
+        //const unpauseButton = document.querySelector("#goButton");
         startButton.addEventListener('click', () => {
           console.log("start");
           arSystem.start(); // start AR when clicking on let's glow-button
@@ -41,9 +55,9 @@
           arSystem.pause(); // pause AR, keep video feed
         });
 
-        unpauseButton.addEventListener('click', () => {
+        /* unpauseButton.addEventListener('click', () => {
           arSystem.unpause(); // unpause AR and video
-        });
+        }); */
         // arReady event triggered when ready
         sceneEl.addEventListener("arReady", (event) => {
           // console.log("MindAR is ready")
@@ -53,17 +67,18 @@
           // console.log("MindAR failed to start")
         });
         // detect target found
-        exampleTarget.addEventListener("targetFound", event => {
+        /* exampleTarget.addEventListener("targetFound", event => {
           console.log("target found");
-        });
+        }); */
         // detect target lost
-        exampleTarget.addEventListener("targetLost", event => {
+        /* exampleTarget.addEventListener("targetLost", event => {
           console.log("target lost");
-        });
+        }); */
         // detect click event
-        examplePlane.addEventListener("click", event => {
+        /* examplePlane.addEventListener("click", event => {
           console.log("plane click");
-        });
+        }); */
+        addTargetFoundListener();
       });
     </script>
 
@@ -71,27 +86,46 @@
         
 
         <a-scene 
-          mindar-image="imageTargetSrc: assets/mindar_marker/mindar_twb_qr-targets.mind;" 
+          mindar-image="imageTargetSrc: assets/mindar_marker/mindar_twb_qr-targets.mind; uiScanning: #info_overlay;"
           color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" 
           vr-mode-ui="enabled: false" 
           device-orientation-permission-ui="enabled: false"
-          autoStart: false
         >
-        <!-- target indices: 0: intro, 1: generativebathing, 2: nailadorning, 3: karmatrimming, 4: soulbleaching, 5: paradisepracticing -->
+        <!-- target indices: 0: intro, 1: generative bathing, 2: nail adorning, 3: karma trimming, 4: soul bleaching, 5: paradise practicing -->
 
           <a-assets>
-            <a-asset-item id="leuchter" src="assets/3d/leuchter_colored.glb"> </a-asset-item>
-            <a-asset-item id="paradisepractice" src="assets/3d/paradisepractice.glb"> </a-asset-item>
+            <a-asset-item id="Asset_Trouble_with_Beauty" src=""> </a-asset-item>
+            <a-asset-item id="Asset_Generative_Bathing" src=""> </a-asset-item>
+            <a-asset-item id="Asset_Nail_Adorning" src=""> </a-asset-item>
+            <a-asset-item id="Asset_Karma_Trimming" src="assets/3d/Brunnen_lowpoly_colored_outline_v2.glb"> </a-asset-item>
+            <a-asset-item id="Asset_Soul_Bleaching" src="assets/3d/leuchter_colored_v2.glb"> </a-asset-item>
+            <a-asset-item id="Asset_Paradise_Practicing" src="assets/3d/paradisepractice_chamber_v2.glb"> </a-asset-item>
           </a-assets>
         
           <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-          <a-entity mindar-image-target="targetIndex: 4">
-            <a-gltf-model rotation="90 0 0 " position="0 0 1" scale="2 2 2" src="#leuchter" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
+          <a-entity mindar-image-target="targetIndex: 0" id="Trouble_with_Beauty">
+            <a-plane src="assets/icons_trans/1_Icon_Smiley.png" material="transparent:true" position="0 0 1" height="2" width="2" rotation="90 0 0" animation="property: rotation; to: 450 0 0; dur: 4000; easing: linear; loop: true;"></a-plane>
           </a-entity>
 
-          <a-entity mindar-image-target="targetIndex: 5">
-            <a-gltf-model rotation="90 0 0 " position="0 0 1" scale="2 2 2" src="#paradisepractice" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
+          <a-entity mindar-image-target="targetIndex: 1" id="Generative_Bathing">
+            <a-plane src="assets/icons_trans/2_Icon_GenerativeBathing.png" material="transparent:true" position="0 0 1" height="2" width="2" rotation="90 0 0" animation="property: rotation; to: 90 360 0; dur: 4000; easing: linear; loop: true;"></a-plane>
+          </a-entity>
+
+          <a-entity mindar-image-target="targetIndex: 2" id="Nail_Adorning">
+            <a-plane src="assets/icons_trans/3_Icon_NailAdorning.png" material="transparent:true" position="0 0 1" height="2" width="2" rotation="90 0 0" animation="property: rotation; to: 90 0 360; dur: 4000; easing: linear; loop: true;"></a-plane>
+          </a-entity>
+            
+          <a-entity mindar-image-target="targetIndex: 3" id="Karma_Trimming">
+            <a-gltf-model rotation="0 0 0" position="0 0 0" scale="0.5 0.5 0.5" src="#Asset_Karma_Trimming" animation="property: rotation; to: 0 0 360; dur: 16000; easing: linear; loop: true;">
+          </a-entity>
+
+          <a-entity mindar-image-target="targetIndex: 4" id="Soul_Bleaching">
+            <a-gltf-model rotation="0 0 0" position="0 0 1" scale="3 3 3" src="#Asset_Soul_Bleaching" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
+          </a-entity>
+
+          <a-entity mindar-image-target="targetIndex: 5" id="Paradise_Practicing">
+            <a-gltf-model rotation="0 0 0" position="0 0 -5" scale="1 1 2" src="#Asset_Paradise_Practicing" animation="property: rotation; to: 0 0 360; dur: 20000; easing: linear; loop: true;">
           </a-entity>
 
       </a-scene>
@@ -102,16 +136,29 @@
             <a href="scalingtest.html"><button> > </button></a>
         </div> -->
 
-        <div class="info_overlay" >
+        <div class="info_overlay" id="info_overlay">
             <div id="hint">Kein Marker sichtbar – Scanne einen der QR-Codes im Magazin!</div>
-            <div class="info_marker_name" id="markerName"><h3>Marker_name</h3></div>
+            
+        </div>
+
+        <div class="info_overlay" id="ar_Details">
+          <div class="info_marker_name" id="markerName" onclick="toggleDescriptions()">
+            <h3>Marker_name</h3>
+            <button id="infotoggle">
+              <svg id="Ebene_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 86.6 75"><defs><style>.cls-1{fill:#e74310;}</style></defs><g id="Ebene_1-2"><polygon class="cls-1" points="43.3 0 0 75 86.6 75 43.3 0"/></g></svg>
+            </button>
+          </div>
+
+          <div class="detailpopup hiddenDescription" id="ar_DetailText">
+
+          </div>
         </div>
         
 
         <div id="header" class="header fixed">
             <div class="header-itemcontainer">
                 <div class="logoButton">
-                    <h1>TwB</h1>
+                    <h1>Twb</h1>
                     <div class="logo_full_wrapper">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="108.1" height="108.555" viewBox="0 0 108.1 108.555">
                             <defs>
@@ -136,7 +183,7 @@
                               </g>
                             </g>
                           </svg>
-                        <h2>AR</h2>
+                        <h2>Ar</h2>
                     </div>
                 </div>
                 <div class="header_description">
@@ -159,7 +206,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="108.1" height="108.555" viewBox="0 0 108.1 108.555">
                     <defs>
                       <clipPath id="clip-path">
-                        <path id="Pfad_14" data-name="Pfad 14" d="M0-293.486H108.1V-402.041H0Z" transform="translate(0 402.041)" fill="#fbafff"/>
+                        <path id="Pfad_14" data-name="Pfad 14" d="M0-293.486H108.1V-402.041H0Z" transform="translate(0 402.041)" fill="#e8420f"/>
                       </clipPath>
                     </defs>
                     <g id="Gruppe_17" data-name="Gruppe 17" transform="translate(0 402.041)">

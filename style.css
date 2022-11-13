@@ -298,7 +298,12 @@ body{ font-size:16px; }
 #headerToggle svg{
     height: 100%;
     width: 100%;
+    
 }
+
+#headerToggle * {
+    fill: #ff4000;
+}   
 
 .logo_minified{
     position: fixed;
@@ -412,13 +417,71 @@ ol li {
 }
 
 .info_marker_name{
-    font-family: "CLAN";
+    /* font-family: "CLAN"; */
+    color: var(--colorOrange);
+    font-weight: bold;
+    
+    
+}
+
+.info_marker_name, .info_marker_name *{
+    pointer-events: all;
+    cursor: pointer;
 }
 
 h3{
     font-size: inherit;
     font-family: inherit;
     margin-bottom: 1em;
+}
+
+.info_marker_name h3{
+    display: inline-block;
+    margin: 0;
+}
+
+.info_overlay button, .info_overlay .detailpopup{
+    pointer-events: all;
+}
+
+.info_overlay#ar_Details{
+    padding: 0;
+}
+
+#infotoggle{
+    width: 2em;
+    height: 2em;
+    fill: var(--colorOrange);
+    background: none;
+    border: none;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+#infotoggle.rotatedIcon {
+    transform: rotate(180deg);
+}
+
+.info_marker_name, .detailpopup{
+    padding: 1rem;
+    background-color: white;
+}
+
+.detailpopup{
+    transition: all 0.6s ease-in-out;
+    max-height: 100vh;
+    overflow-y: scroll;
+    height: fit-content;
+    color: var(--colorOrange);
+    padding-bottom: 4rem;
+}
+
+.detailpopup.hiddenDescription{
+    max-height: 0vh;
+    overflow: hidden;
+    height: 0%;
+    padding: 0 1rem;
+    padding-bottom: 0 rem;
 }
 
 
