@@ -421,7 +421,8 @@ ol li {
     color: var(--colorOrange);
     font-weight: bold;
     display: flex;
-    
+    justify-content: space-between;
+    align-items: baseline;
 }
 
 .info_marker_name, .info_marker_name *{
