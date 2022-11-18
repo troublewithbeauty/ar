@@ -98,8 +98,9 @@
         
           <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-          <a-entity mindar-image-target="targetIndex: 0" id="Trouble_with_Beauty">
-            <a-plane src="assets/icons_trans/1_Icon_Smiley.png" material="transparent:true" position="0 0 1" height="2" width="2" rotation="90 0 0" animation="property: rotation; to: 450 0 0; dur: 4000; easing: linear; loop: true;"></a-plane>
+          <a-entity mindar-image-target="targetIndex: 0" id="Trouble_with_Beauty" rotation="90 0 0">
+            <a-plane src="assets/icons_trans/1_Icon_Smiley.png" material="transparent:true" position="0 0 .5" height="2" width="2" rotation="0 0 0" animation="property: rotation; to: 0 360 0; dur: 4000; easing: linear; loop: true;"></a-plane>
+            <a-plane src="assets/icons_trans/1_Icon_Smiley_happy.png" material="transparent:true" position="0 0 .5" height="2" width="2" rotation="0 180 0" animation="property: rotation; to: 0 520 0; dur: 4000; easing: linear; loop: true;"></a-plane>
           </a-entity>
 
           <a-entity mindar-image-target="targetIndex: 1" id="Generative_Bathing">
