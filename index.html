@@ -91,7 +91,9 @@
             <a-asset-item id="Asset_Nail_Adorning" src=""> </a-asset-item>
             <a-asset-item id="Asset_Karma_Trimming" src="assets/3d/Brunnen_lowpoly_colored_outline_v2.glb"> </a-asset-item>
             <a-asset-item id="Asset_Soul_Bleaching" src="assets/3d/leuchter_colored_v2.glb"> </a-asset-item>
-            <a-asset-item id="Asset_Paradise_Practicing" src="assets/3d/paradisepractice_chamber_v2.glb"> </a-asset-item>
+            <a-asset-item id="Asset_Paradise_Practicing" src="assets/3d/AR_paradise_chamber_v3.glb"> </a-asset-item>
+            <a-asset-item id="Asset_PaPr_leftwards" src="assets/3d/AR_papr_circle_leftwards.glb"> </a-asset-item>
+            <a-asset-item id="Asset_PaPr_rightwards" src="assets/3d/AR_papr_circle_rightwards.glb"> </a-asset-item>
           </a-assets>
         
           <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
@@ -117,7 +119,9 @@
           </a-entity>
 
           <a-entity mindar-image-target="targetIndex: 5" id="Paradise_Practicing">
-            <a-gltf-model rotation="0 0 0" position="0 0 -5" scale="1 1 2" src="#Asset_Paradise_Practicing" animation="property: rotation; to: 0 0 360; dur: 20000; easing: linear; loop: true;">
+            <a-gltf-model rotation="0 0 0" position="0 0 -5" scale="1 1 1" src="#Asset_Paradise_Practicing" animation="property: rotation; to: 0 0 360; dur: 40000; easing: linear; loop: true;"></a-gltf-model>
+            <a-gltf-model rotation="0 0 0" position="0 0 -5" scale="1 1 1" src="#Asset_PaPr_leftwards" animation="property: rotation; to: 0 0 360; dur: 20000; easing: linear; loop: true;"></a-gltf-model>
+            <a-gltf-model rotation="0 0 0" position="0 0 -5" scale="1 1 1" src="#Asset_PaPr_rightwards" animation="property: rotation; to: 0 0 -360; dur: 20000; easing: linear; loop: true;"></a-gltf-model>
           </a-entity>
 
       </a-scene>
