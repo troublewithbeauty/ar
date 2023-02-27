@@ -66,6 +66,7 @@
         startButton.addEventListener('click', () => {
           console.log("start");
           arSystem.start(); // start AR when clicking on let's glow-button
+          toggleNotes("off");
         });
         /* stopButton.addEventListener('click', () => {
           arSystem.stop(); // stop AR 
@@ -85,26 +86,17 @@
         sceneEl.addEventListener("arError", (event) => {
           // console.log("MindAR failed to start")
         });
-        // detect target found
-        /* exampleTarget.addEventListener("targetFound", event => {
-          console.log("target found");
-        }); */
-        // detect target lost
-        /* exampleTarget.addEventListener("targetLost", event => {
-          console.log("target lost");
-        }); */
-        // detect click event
+        // detect click on ar object event
         /* examplePlane.addEventListener("click", event => {
           console.log("plane click");
         }); */
-        addTargetFoundListener();
+        addTargetListeners();
       });
     </script>
 
     <body style="margin : 0px; overflow: hidden;">
         
-
-        <a-scene 
+      <a-scene 
           mindar-image="imageTargetSrc: assets/mindar_marker/mindar_twb_qr-targets.mind; uiScanning: #info_overlay;"
           color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" 
           vr-mode-ui="enabled: false" 
@@ -118,16 +110,28 @@
             <a-asset-item id="Asset_Nail_Adorning" src=""> </a-asset-item>
             <a-asset-item id="Asset_Karma_Trimming" src="assets/3d/Brunnen_lowpoly_colored_outline_v2.glb"> </a-asset-item>
             <a-asset-item id="Asset_Soul_Bleaching" src="assets/3d/leuchter_colored_v2.glb"> </a-asset-item>
+<<<<<<< HEAD
             <a-asset-item id="Asset_Paradise_Practicing" src="assets/3d/paradisepractice_chamber_v2.glb"> </a-asset-item>
             <video id="myvideo" src="assets/img/papr-video-small.webm"></video>
             <video id="anim1" autoplay="true" loop="true" src="assets/img/papr-video-small.webm"></video>
+=======
+            <a-asset-item id="Asset_Paradise_Practicing" src="assets/3d/AR_paradise_chamber_v3.glb"> </a-asset-item>
+            <a-asset-item id="Asset_PaPr_leftwards" src="assets/3d/AR_papr_circle_leftwards.glb"> </a-asset-item>
+            <a-asset-item id="Asset_PaPr_rightwards" src="assets/3d/AR_papr_circle_rightwards.glb"> </a-asset-item>
+>>>>>>> f08a33b7b2c036e8a0ee837e5fadc6c58f6672a2
           </a-assets>
         
           <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
+<<<<<<< HEAD
           <a-entity mindar-image-target="targetIndex: 0" id="Trouble_with_Beauty">
             <a-plane src="assets/img/circular_gradient.png" material="transparent:true" position="0 0 0" height="5" width="5" rotation="0 0 90" animation="property: rotation; to: 0 0 450; dur: 64000; easing: linear; loop: true;"></a-plane>
             <a-plane src="assets/icons_trans/1_Icon_Smiley.png" material="transparent:true" position="0 0 1" height="2" width="2" rotation="90 0 0" animation="property: rotation; to: 450 0 0; dur: 4000; easing: linear; loop: true;"></a-plane>
+=======
+          <a-entity mindar-image-target="targetIndex: 0" id="Trouble_with_Beauty" rotation="90 0 0">
+            <a-plane src="assets/icons_trans/1_Icon_Smiley.png" material="transparent:true" position="0 0 .5" height="2" width="2" rotation="0 0 0" animation="property: rotation; to: 0 360 0; dur: 4000; easing: linear; loop: true;"></a-plane>
+            <a-plane src="assets/icons_trans/1_Icon_Smiley_happy.png" material="transparent:true" position="0 0 .5" height="2" width="2" rotation="0 180 0" animation="property: rotation; to: 0 520 0; dur: 4000; easing: linear; loop: true;"></a-plane>
+>>>>>>> f08a33b7b2c036e8a0ee837e5fadc6c58f6672a2
           </a-entity>
 
           <a-entity mindar-image-target="targetIndex: 1" id="Generative_Bathing">
@@ -151,20 +155,15 @@
           </a-entity>
 
           <a-entity mindar-image-target="targetIndex: 5" id="Paradise_Practicing">
-            <a-gltf-model rotation="0 0 0" position="0 0 -5" scale="1 1 2" src="#Asset_Paradise_Practicing" animation="property: rotation; to: 0 0 360; dur: 20000; easing: linear; loop: true;">
+            <a-gltf-model rotation="0 0 0" position="0 0 -5" scale="1 1 1" src="#Asset_Paradise_Practicing" animation="property: rotation; to: 0 0 360; dur: 40000; easing: linear; loop: true;"></a-gltf-model>
+            <a-gltf-model rotation="0 0 0" position="0 0 -5" scale="1 1 1" src="#Asset_PaPr_leftwards" animation="property: rotation; to: 0 0 360; dur: 20000; easing: linear; loop: true;"></a-gltf-model>
+            <a-gltf-model rotation="0 0 0" position="0 0 -5" scale="1 1 1" src="#Asset_PaPr_rightwards" animation="property: rotation; to: 0 0 -360; dur: 20000; easing: linear; loop: true;"></a-gltf-model>
           </a-entity>
 
       </a-scene>
 
-        <!-- <div class="centered">
-            <a href="locationtest.html"><button> < </button></a>
-            <button data-action="change"> Videotest </button>
-            <a href="scalingtest.html"><button> > </button></a>
-        </div> -->
-
         <div class="info_overlay" id="info_overlay">
             <div id="hint">Kein Marker sichtbar – Scanne einen der QR-Codes im Magazin!</div>
-            
         </div>
 
         <div class="info_overlay" id="ar_Details">
@@ -176,7 +175,7 @@
           </div>
 
           <div class="detailpopup hiddenDescription" id="ar_DetailText">
-            Scanne einen der QR-Codes im Magazin, um das digitale Glow-Up zu erleben! <br> Damit die Augmented Reality-Funktion richtig funktioniert, musst du für diese Seite Zugriff auf deine Kamera erlauben.
+            Scanne einen der QR-Codes im Magazin, um das digitale Glow-Up zu erleben! <br> Damit die Augmented Reality-Funktion richtig funktioniert, musst du für diese Seite Zugriff auf deine Kamera erlauben. <br> Am besten entfaltet sich die Augmented Reality bei guter Beleuchtung und ruhiger Handhabe. 
           </div>
         </div>
         
@@ -223,8 +222,7 @@
                 </div>
                 <button id="goButton" class="header_goButton" onclick="toggleHeader()">Let's Glow</button>
                 <div class="header_footerlinks">
-                    <a>Impressum & Datenschutz</a>
-                    <a>Benutzungshilfe</a>
+                    <a onclick="toggleNotes('on','imprint')">Impressum</a>
                 </div>
 
             </div>
@@ -255,7 +253,71 @@
             </button>
         </div>
 
+        <div id="impressum" class="detailpopup">
+          <h2>Impressum</h2>
+          <h3>ANGABEN GEMÄSS § 5 TELEMEDIENGESETZ (TMG)</h3>
+          <p>
+            Prof. Stefan Stefanescu und Prof. Dr. Anke Haarmann <br>
+            im Auftrag des Departments Design der HAW Hamburg <br>
+            22081 Hamburg <br>
+            Deutschland <br>
+            Tel. +49.40 428754641 <br>
+            stefan.stefanescu@haw-hamburg.de <br>
+          </p>
+          
+          <h3>HAFTUNG FÜR INHALTE</h3>
+          <p>
+          Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+          Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen. Haftung für Links
+          Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.
+          Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
+          </p>
 
+          <h3>URHEBERRECHT</h3>
+          <p>
+          Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+          Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
+          </p>
+
+          <h3>COOKIES</h3>
+          <p>Diese Seite verwendet keine sogennanten Tracking-Cookies. Es werden keine persönlichen Daten gespeichert.</p>
+
+          <h3>CREDITS</h3>
+          <p>
+          <h4>Trouble with Beauty</h4>
+          Esteban Barco  <br>
+          Sophie Bohne <br>
+          Frederik Engelbrecht <br>
+          Sarah Geerz <br>
+          Sina Gösele <br>
+          Charleen König <br>
+          Johanna Lick <br>
+          Bennet Möller <br>
+          Annika Ossenbrunner <br>
+          Amyra Radman <br>
+          Leoni Roosen <br>
+          Liad Shadmi <br>
+          Annette Schmid <br>
+          Valeria Schriber <br>
+          Claudia Schulz <br>
+          Niklas Wolf <br>
+          Mahsa Zarififar
+          </p>
+
+          <h3>LEHRENDE:</h3>
+          <p>
+          Prof. Dr. Anke Haarmann <br>
+          Prof. Stefan Stefanescu
+          </p>
+
+          <h3>FONT:</h3>
+          <p>
+            Circular Std <br>
+            Clan
+          </p>
+          <br>
+          <p>HAW Hamburg 2022</p>
+        </div>
         <script src="events.js"></script>
     </body>
 </html>

@@ -261,7 +261,18 @@ body{ font-size:16px; }
     transform: translateY(-100vh);
 }
 
+.nothidden-hack {
+    transform: translateY(0vh) !important;
+}
+.nothidden-hack #hint{
+    background: var(--colorOrange);
+}
+.nothidden-hack * {
+    pointer-events: all;
+}
+
 .header-itemcontainer{
+    min-width: min-content;
     max-width: 600px;
     max-height: 1200px;
     width: calc(100vh/4); /* magic number, fix */
@@ -364,16 +375,27 @@ ol li {
 }
 
 .header_goButton:hover{
-    border: 1rem solid var(--colorPink);
+    /* border: 0.6rem solid var(--colorPink); */
+    background: var(--colorPink);
+    color: var(--colorOrange);
+    /* box-shadow:inset 0 0 0.5rem white; */
+    font-size: 1.8rem;
 }
 
 .header_goButton:active{
     background: var(--colorPink);
     color: var(--colorOrange);
+    font-size: 0rem;
 }
 
 .header_footerlinks{
+    width: 100%;
     text-align: right;
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: space-between;
 }
 
 .info_overlay{
@@ -529,6 +551,24 @@ h3{
 }
 
 
+
+#impressum, #benutzungshilfe {
+    font-size: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(110vh);
+}
+#impressum h3, #benutzungshilfe h3 {
+    font-family: "CLAN";
+    margin-top: 1rem;
+}
+
+.notesVisible {
+    transform: translateY(0vh) !important;
+}
+
 /* MindAR Stuff */
 .mindar-ui-overlay{
     pointer-events: none;
@@ -544,6 +584,7 @@ h3{
         width: 100%;
         height: 100%;
         max-height: 100vh;
+        min-width: unset;
     }
 
     #header.hidden .header-itemcontainer{
