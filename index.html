@@ -34,6 +34,25 @@
             })
           }
         });
+
+        AFRAME.registerComponent("vidhandler", {
+          init: function() {
+            this.toggle = false;
+            document.querySelector("#anim1").pause(); //reference to the video
+          },
+          tick: function() {
+            if (document.querySelector("#Generative_Bathing").object3D.visible == true) {
+              if (!this.toggle) {
+                this.toggle = true;
+                document.querySelector("#anim1").play();
+              }
+            } else {
+              this.toggle = false;
+              document.querySelector("#anim1").pause();
+            }
+          }
+        });
+
     </script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
@@ -100,27 +119,34 @@
             <a-asset-item id="Asset_Karma_Trimming" src="assets/3d/Brunnen_lowpoly_colored_outline_v2.glb"> </a-asset-item>
             <a-asset-item id="Asset_Soul_Bleaching" src="assets/3d/leuchter_colored_v2.glb"> </a-asset-item>
             <a-asset-item id="Asset_Paradise_Practicing" src="assets/3d/paradisepractice_chamber_v2.glb"> </a-asset-item>
+            <video id="myvideo" src="assets/img/papr-video-small.webm"></video>
+            <video id="anim1" autoplay="true" loop="true" src="assets/img/papr-video-small.webm"></video>
           </a-assets>
         
           <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
           <a-entity mindar-image-target="targetIndex: 0" id="Trouble_with_Beauty">
+            <a-plane src="assets/img/circular_gradient.png" material="transparent:true" position="0 0 0" height="5" width="5" rotation="0 0 90" animation="property: rotation; to: 0 0 450; dur: 64000; easing: linear; loop: true;"></a-plane>
             <a-plane src="assets/icons_trans/1_Icon_Smiley.png" material="transparent:true" position="0 0 1" height="2" width="2" rotation="90 0 0" animation="property: rotation; to: 450 0 0; dur: 4000; easing: linear; loop: true;"></a-plane>
           </a-entity>
 
           <a-entity mindar-image-target="targetIndex: 1" id="Generative_Bathing">
-            <a-plane src="assets/icons_trans/2_Icon_GenerativeBathing.png" material="transparent:true" position="0 0 1" height="2" width="2" rotation="90 0 0" animation="property: rotation; to: 90 360 0; dur: 4000; easing: linear; loop: true;"></a-plane>
+            <a-plane src="assets/img/circular_gradient.png" material="transparent:true" position="0 0 0" height="5" width="5" rotation="0 0 90" animation="property: rotation; to: 0 0 450; dur: 64000; easing: linear; loop: true;"></a-plane>
+            <a-video src="#anim1" width="3" height="3" position="0 0 0.5" rotation="0 0 0" animation="property: scale; to: 1.2; dur: 8000; easing: easeInOutQuad; loop: true; dir: alternate"></a-video>></a-video>
           </a-entity>
 
           <a-entity mindar-image-target="targetIndex: 2" id="Nail_Adorning">
+            <a-plane src="assets/img/circular_gradient.png" material="transparent:true" position="0 0 0" height="5" width="5" rotation="0 0 90" animation="property: rotation; to: 0 0 450; dur: 64000; easing: linear; loop: true;"></a-plane>
             <a-plane src="assets/icons_trans/3_Icon_NailAdorning.png" material="transparent:true" position="0 0 1" height="2" width="2" rotation="90 0 0" animation="property: rotation; to: 90 0 360; dur: 4000; easing: linear; loop: true;"></a-plane>
           </a-entity>
             
           <a-entity mindar-image-target="targetIndex: 3" id="Karma_Trimming">
+            <a-plane src="assets/img/circular_gradient.png" material="transparent:true" position="0 0 0" height="5" width="5" rotation="0 0 90" animation="property: rotation; to: 0 0 450; dur: 64000; easing: linear; loop: true;"></a-plane>
             <a-gltf-model rotation="0 0 0" position="0 0 0" scale="0.5 0.5 0.5" src="#Asset_Karma_Trimming" animation="property: rotation; to: 0 0 360; dur: 16000; easing: linear; loop: true;">
           </a-entity>
 
           <a-entity mindar-image-target="targetIndex: 4" id="Soul_Bleaching">
+            <a-plane src="assets/img/circular_gradient.png" material="transparent:true" position="0 0 0" height="5" width="5" rotation="0 0 90" animation="property: rotation; to: 0 0 450; dur: 64000; easing: linear; loop: true;"></a-plane>
             <a-gltf-model rotation="0 0 0" position="0 0 1" scale="3 3 3" src="#Asset_Soul_Bleaching" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
           </a-entity>
 

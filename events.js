@@ -74,7 +74,7 @@ function targetFoundHandler(target) {
             break;
 
         case "#Paradise_Practicing":
-            detailTextContent = "Entspannung für alle Muskeln: Begib' dich auf eine Vitamin–D getränkte Reise und flüchte deinen Geist in eine von Tropizismus geprägte Welt. AUDIO-WIDGET HIER";
+            detailTextContent = "Entspannung für alle Muskeln: Begib' dich auf eine Vitamin–D getränkte Reise und flüchte deinen Geist in eine von Tropizismus geprägte Welt.";
             break;
             
 
